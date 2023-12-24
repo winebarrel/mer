@@ -51,7 +51,8 @@ func main() {
 		options.Src = strings.TrimSpace(string(bs))
 	}
 
-	src, err := decimal.NewFromString(options.Src)
+	s := strings.ReplaceAll(options.Src, ",", "")
+	src, err := decimal.NewFromString(s)
 
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
