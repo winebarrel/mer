@@ -16,6 +16,7 @@ Arguments:
 
 Flags:
   -h, --help       Show help.
+  -c, --comma      Add comma to a number.
       --version
 ```
 
@@ -25,6 +26,9 @@ $ mer usd jpy 3
 
 $ echo 1.53 | mer usd eur
 1.36185
+
+$ mer -c usd jpy 1000
+142,401
 ```
 
 ## Installation
