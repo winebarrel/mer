@@ -26,3 +26,9 @@ $ mer usd jpy 3
 $ echo 1.53 | mer usd eur
 1.36185
 ```
+
+## Installation
+
+```sh
+brew install winebarrel/mer/mer
+```

@@ -1,0 +1,24 @@
+before:
+  hooks:
+    - go mod tidy
+builds:
+  - main: ./cmd/mer
+    ldflags:
+      - -X main.version={{.Version}}
+    env:
+      - CGO_ENABLED=0
+checksum:
+  name_template: "checksums.txt"
+archives:
+  - format_overrides:
+      - goos: windows
+        format: zip
+brews:
+  - repository:
+      owner: winebarrel
+      name: homebrew-mer
+    homepage: https://github.com/winebarrel/mer
+    description: CLI to convert currency.
+    license: MIT
+    install: |
+      bin.install 'mer'
