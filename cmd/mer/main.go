@@ -9,6 +9,7 @@ import (
 	"github.com/alecthomas/kong"
 	"github.com/shopspring/decimal"
 	"github.com/winebarrel/mer"
+	"github.com/winebarrel/mer/internal/util"
 )
 
 var (
@@ -16,9 +17,10 @@ var (
 )
 
 type Options struct {
-	From string `arg:"" help:"Exchange source currency code."`
-	To   string `arg:"" help:"Exchange destination currency code."`
-	Src  string `arg:"" optional:"" help:"Exchange source."`
+	From  string `arg:"" help:"Exchange source currency code."`
+	To    string `arg:"" help:"Exchange destination currency code."`
+	Src   string `arg:"" optional:"" help:"Exchange source."`
+	Comma bool   `short:"c" help:"Add comma to a number."`
 }
 
 func parseArgs() *Options {
@@ -63,5 +65,9 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Println(dst)
+	if options.Comma {
+		fmt.Println(util.Comma(dst.String()))
+	} else {
+		fmt.Println(dst)
+	}
 }
