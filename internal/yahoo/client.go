@@ -36,7 +36,7 @@ type Response struct {
 func Request(ctx context.Context, from string, to string) (*Response, error) {
 	from = strings.ToUpper(from)
 	to = strings.ToUpper(to)
-	url := URL_PREFIX + from + to + "=x?interval=1d"
+	url := URL_PREFIX + from + to + "=X?interval=1d"
 	resp, err := http.Get(url)
 
 	if err != nil {
