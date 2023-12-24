@@ -18,6 +18,7 @@ var (
 type Options struct {
 	From string `arg:"" help:"Exchange source currency code."`
 	To   string `arg:"" help:"Exchange destination currency code."`
+	Src  string `arg:"" optional:"" help:"Exchange source."`
 }
 
 func parseArgs() *Options {
@@ -36,15 +37,19 @@ func parseArgs() *Options {
 
 func main() {
 	options := parseArgs()
-	bs, err := io.ReadAll(os.Stdin)
 
-	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		os.Exit(1)
+	if options.Src == "" {
+		bs, err := io.ReadAll(os.Stdin)
+
+		if err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			os.Exit(1)
+		}
+
+		options.Src = strings.TrimSpace(string(bs))
 	}
 
-	s := strings.TrimSpace(string(bs))
-	src, err := decimal.NewFromString(s)
+	src, err := decimal.NewFromString(options.Src)
 
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
