@@ -26,6 +26,9 @@ Flags:
 $ mer usd jpy 3
 427.203
 
+mer jpy eur 10
+0.064
+
 $ echo 1.53 | mer usd eur
 1.36185
 
