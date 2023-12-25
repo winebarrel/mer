@@ -1,6 +1,6 @@
 # mer
 
-CLI to convert currency.
+CLI to convert currency using Yahoo! finance API.
 
 [![CI](https://github.com/winebarrel/mer/actions/workflows/ci.yml/badge.svg)](https://github.com/winebarrel/mer/actions/workflows/ci.yml)
 [![Go Reference](https://pkg.go.dev/badge/github.com/winebarrel/mer.svg)](https://pkg.go.dev/github.com/winebarrel/mer)
