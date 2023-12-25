@@ -3,6 +3,8 @@
 CLI to convert currency.
 
 [![CI](https://github.com/winebarrel/mer/actions/workflows/ci.yml/badge.svg)](https://github.com/winebarrel/mer/actions/workflows/ci.yml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/winebarrel/mer.svg)](https://pkg.go.dev/github.com/winebarrel/mer)
+
 
 ## Usage
 
