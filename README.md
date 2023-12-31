@@ -35,7 +35,7 @@ $ echo 1.53 | mer usd eur
 $ mer usd jpy 3000
 21
 
-$ mer usd jpy 3,000 # comma will be deleted
+$ mer usd jpy 3,000 #commas are ignored
 21
 
 $ mer usd jpy 1000
