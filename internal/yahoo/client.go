@@ -40,7 +40,7 @@ func Request(ctx context.Context, from string, to string) (*Response, error) {
 	resp, err := http.Get(url)
 
 	if err != nil {
-		return nil, fmt.Errorf("Request to Yahoo! Finance API failed: %w", err)
+		return nil, fmt.Errorf("request to Yahoo! Finance API failed: %w", err)
 	}
 
 	defer resp.Body.Close()
@@ -48,28 +48,28 @@ func Request(ctx context.Context, from string, to string) (*Response, error) {
 
 	if resp.StatusCode != 200 {
 		if err != nil {
-			return nil, fmt.Errorf("Yahoo! Finance API response is not OK: %s", resp.Status)
+			return nil, fmt.Errorf("Yahoo! Finance API response is not OK: %s", resp.Status) //nolint:staticcheck
 		}
 
 		er := ErrorResponse{}
 		err = json.Unmarshal(body, &er)
 
 		if err != nil {
-			return nil, fmt.Errorf("Yahoo! Finance API response is not OK: %s", body)
+			return nil, fmt.Errorf("Yahoo! Finance API response is not OK: %s", body) //nolint:staticcheck
 		}
 
 		return nil, errors.New(er.Chart.Error.Description)
 	}
 
 	if err != nil {
-		return nil, fmt.Errorf("Reading Yahoo! Finance API response failed: %w", err)
+		return nil, fmt.Errorf("reading Yahoo! Finance API response failed: %w", err)
 	}
 
 	r := &Response{}
 	err = json.Unmarshal(body, &r)
 
 	if err != nil {
-		return nil, fmt.Errorf("Parsing of Yahoo! Finance API response failed: %w", err)
+		return nil, fmt.Errorf("parsing of Yahoo! Finance API response failed: %w", err)
 	}
 
 	return r, nil

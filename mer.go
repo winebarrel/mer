@@ -18,7 +18,7 @@ func ExchangeContext(ctx context.Context, from string, to string, src decimal.De
 	crs := resp.Chart.Result
 
 	if len(crs) == 0 {
-		return decimal.Zero, errors.New("Chart results not found")
+		return decimal.Zero, errors.New("chart results not found")
 	}
 
 	frmp := crs[0].Meta.RegularMarketPrice
