@@ -3,7 +3,7 @@ module github.com/winebarrel/mer
 go 1.21.4
 
 require (
-	github.com/alecthomas/kong v1.13.0
+	github.com/alecthomas/kong v1.14.0
 	github.com/jarcoal/httpmock v1.4.1
 	github.com/shopspring/decimal v1.4.0
 	github.com/stretchr/testify v1.11.1
